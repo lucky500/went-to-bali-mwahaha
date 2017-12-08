@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authorize, except: [:index, :show]
+  # before_filter :authorize, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to '/'
+      redirect_to root_path
     else
       render :new
     end

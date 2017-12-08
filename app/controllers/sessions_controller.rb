@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  #before_action :prevent_logged_in_user_access, except: :destroy
+  #before_action :prevent_unauthorized_user_access, only: :destroy
 
   def new
   end
@@ -7,9 +9,10 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/'
+      redirect_to root_path, notice: 'Logged in'
     else
-      redirect_to '/sign_in'
+      flash.now[:notice] = 'Invalid username / password combination'
+      render :new
     end
   end
 
