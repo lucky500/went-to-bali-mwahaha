@@ -9,6 +9,7 @@
   </head>
   <nav>
     <div class="nav-wrapper">
+      <%= link_to 'Home', root_path,  class: 'brand-logo' %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><%= link_to "Cart | Total items: #{ cart_items }", cart_path %></li>
         <li><%= link_to "See all products", products_path %></li>
