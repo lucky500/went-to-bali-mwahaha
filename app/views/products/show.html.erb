@@ -1,1 +1,8 @@
 <h3>Product Detail</h3>
+
+<h4><%= @product.name %></h4>
+
+
+<%= link_to 'Edit Product', edit_product_path(@product) %>
+<br>
+<%= link_to 'Delete Product', product_path(@product), method: :delete, data: {confirm: 'Are you sure?'} %>

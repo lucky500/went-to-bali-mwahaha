@@ -27,7 +27,18 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      flash[:notice] = "Product successfully updated!"
+      redirect_to product_path(@product)
+    else
+      render :edit
+    end
+  end
 
+  def destroy
+    @product.destroy
+    flash[:notice] = "Product was deleted!"
+    redirect_to root_path
   end
 
   private
