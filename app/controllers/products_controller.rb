@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   # before_filter :authorize, except: [:index, :show]
+  before_action :find_products, only: [:edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -19,8 +20,19 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :description, :price, :product_img)
+  end
+
+  def find_products
+    @product = Product.find(params[:id])
   end
 end
