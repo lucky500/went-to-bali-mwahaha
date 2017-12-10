@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   # before_filter :authorize, except: [:index, :show]
-  before_action :find_products, only: [:edit, :update, :destroy]
+  before_action :find_products, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -18,6 +18,9 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit

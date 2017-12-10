@@ -6,7 +6,9 @@
     <div class="col s4">
       <div class="card">
         <div class="card-image">
-          <img src="http://via.placeholder.com/300x250">
+          <%= link_to product_path(product) do %>
+            <img src="http://via.placeholder.com/300x250">
+          <% end %> 
           <h4 class="card-title"><%= product.name %></h4>
         </div>
         <div class="card-content">
@@ -21,7 +23,7 @@
             <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
           <% end %>
         </div>
-      </div>     
+      </div>   
     </div>
   <% end %>
   <%= link_to 'Add a Product', new_product_path %>
