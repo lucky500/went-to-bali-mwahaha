@@ -2,7 +2,7 @@
   Image: <%= f.file_field :product_img %>
   <br>
   Name: <%= f.text_field :name %>
-  Description: <%= f.text_field :description %>
+  Description: <%= f.text_field :description, class: 'materialize-textarea' %>
   Price: <%= f.number_field :price %>
   <%= f.submit "Submit" %>
 <% end %>

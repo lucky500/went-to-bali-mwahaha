@@ -7,20 +7,21 @@
       <div class="card">
         <div class="card-image">
           <%= link_to product_path(product) do %>
-            <img src="http://via.placeholder.com/300x250">
+            <%= image_tag product.product_img.url(:medium), class: 'img-index' %>
           <% end %> 
           <h4 class="card-title"><%= product.name %></h4>
         </div>
         <div class="card-content">
-          <p><%= product.description %></p>
+          <p class="product-show">See product description: </p>
+          <p class="product-description"><%= product.description %></p>
         </div>
         <div class="card-action">
           <p><%= number_to_currency product.price %></p>
-          <%= form_for @order_item do |f| %>
+          <%= form_for @order_item, remote: true do |f| %>
             <%= f.hidden_field :product_id, value: product.id %>
             <label for="quantity">Enter Quantity:</label>
             <%= f.number_field :quantity, id: "quantity" %>
-            <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+            <span class="waves-effect waves-light btn add-to-cart-btn"><%= f.submit "Add to cart" %></span>
           <% end %>
         </div>
       </div>   
