@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  # before_filter :authorize, except: [:index, :show]
+  before_filter :authorize, except: [:index, :show]
+  # before_filter :authorize_admin, only: :create
   before_action :find_products, only: [:show, :edit, :update, :destroy]
 
   def index
