@@ -13,7 +13,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+
     if @product.save
+      flash[:notice] = "Product has been added."
       redirect_to root_path
     else
       render :new
@@ -21,6 +23,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { redirect_to products_path }
+      format.js
+    end
   end
 
   def edit
@@ -38,7 +44,11 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     flash[:notice] = "Product was deleted!"
-    redirect_to root_path
+    redirect_to products_path
+    # respond_to do |format|
+    #   format.html { redirect_to products_path }
+    #   format.js
+    # end
   end
 
   private

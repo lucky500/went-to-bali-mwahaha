@@ -1,5 +1,5 @@
 module CartHelper
   def cart_items
-    current_order.order_items.length
+    current_order.total_items
   end
 end

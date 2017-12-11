@@ -2,7 +2,13 @@ class Order < ApplicationRecord
   has_many :order_items
   belongs_to :user, optional: true
 
+
   before_save :calculate_total
+
+  def total_items
+    self.total_price = order_items.collect { |item| item.quantity }.sum
+  end
+
 
   def calculate_total
     self.total_price = order_items.collect { |item| item.product.price * item.quantity }.sum

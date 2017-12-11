@@ -1,7 +1,9 @@
 <h3>Product Detail</h3>
-
-<%= image_tag @product.product_img.url(:medium) %>
-<h4><%= @product.name %></h4>
+<p class="product-show">Hide/Show product details </p>
+<div>
+  <%= image_tag @product.product_img.url(:medium) %>
+  <h4><%= @product.name %></h4>
+</div>
 
 
 <%= link_to 'Edit Product', edit_product_path(@product) %>

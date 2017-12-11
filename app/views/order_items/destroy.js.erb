@@ -1,0 +1,10 @@
+// $('.delete-btn').bind('ajax:success', function() {  
+//   $(this).closest('div#<%= @item.id %>').slideUp();
+//   console.log('clicked');
+// });
+// $('#update-total').text("<%= number_to_currency current_order.total_price %>");
+
+$('#<%= @item.id %>').remove();
+$('#items-in-cart').html("Cart | Total items: <%= @order.order_items.count %> ");
+$('#update-total').text("<%= number_to_currency current_order.total_price %>");
+
