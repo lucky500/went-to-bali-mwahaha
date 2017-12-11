@@ -26,6 +26,8 @@
       </div>   
     </div>
   <% end %>
-  <%= link_to 'Add a Product', new_product_path %>
+  <% if current_user.admin? %>
+    <%= link_to 'Add a Product', new_product_path %>
+  <% end %>
 </div>
 </div>
