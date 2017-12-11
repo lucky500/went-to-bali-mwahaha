@@ -4,7 +4,7 @@
 // });
 // $('#update-total').text("<%= number_to_currency current_order.total_price %>");
 
-$('#<%= @item.id %>').remove();
+$('#<%= @item.id %>').slideUp();
 $('#items-in-cart').html("Cart | Total items: <%= @order.order_items.count %> ");
 $('#update-total > span').text("<%= number_to_currency current_order.total_price %>");
 
