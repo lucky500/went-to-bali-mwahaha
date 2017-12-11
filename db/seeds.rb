@@ -41,3 +41,31 @@ Product.create!([
     description: Faker::Lorem.sentence(5, false, 0).chop
   }
 ])
+
+#USERS
+
+User.create!([
+    {
+        name: 'Jules Winnfield',
+        email: 'user1@test.com',
+        password: '123456',
+        password_confirmation: '123456',
+    },
+    {
+        name: 'Vincent Vega',
+        email: 'user2@test.com',
+        password: '123456',
+        password_confirmation: '123456',
+    },
+    {
+        name: 'Mia Wallace',
+        email: 'user3@test.com',
+        password: '123456',
+        password_confirmation: '123456',
+    },
+    {
+        email: 'Honey Bunny',
+        password: '123456',
+        password_confirmation: '123456',
+    }
+])
