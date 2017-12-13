@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authorize, except: [:index, :show]
+  # before_filter :authorize, except: [:index, :show]
   # before_filter :authorize_admin, only: :create
   before_action :find_products, only: [:show, :edit, :update, :destroy]
 
@@ -24,10 +24,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html { redirect_to products_path }
-      format.js
-    end
   end
 
   def edit
